@@ -11,6 +11,6 @@ export class UserModel {
   @Column({ length: 255 })
   email: string;
 
-  @Column({ length: 8 })
-  password: string;
+  @Column({ length: 255 })
+  role: string;
 }
