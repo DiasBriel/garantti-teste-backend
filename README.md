@@ -1,73 +1,54 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
+# Teste Garantti - Cadastro de Usuários - **Back End**
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Foi solicitada a criação de um pequeno sistema que respeitasse as solicitações:
+- Listagem
+- Cadastro
+- Visualização
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+### Observações:
+1. Para facilitar na avaliação, fiz deploy do banco de dados MySQL que criei, simplesmente para não ser de que vocês realizem toda a configuração inicial do DB
+2. ormconfig.json já está com as credenciais necessárias
+3. Em caso de quaisquer dúvidas, estou à disposição para respondê-las. <br/>
+4. Desde já, agradeço e espero conseguir atender minimamente o que os senhores esperavam! <br/>
 
-## Description
+### Arquitetura:
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Como se trata de um sistema simples, utilizei a arquitetura de MVC (Model View Controller), pois funciona muito bem nesses casos.
 
-## Installation
+<img src="https://user-images.githubusercontent.com/86886134/155746622-6537d76a-6b32-47bc-9c25-5b1174e4f59b.png" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="500" height="350" />
 
-```bash
-$ npm install
-```
+## Execução:
 
-## Running the app
+Para utilizar o código, basta:
 
-```bash
-# development
-$ npm run start
+1. Clone este repositório.
+2. Execute ``npm install `` para instalar as dependências necessárias.
+3. Execute ``npm run start:dev `` para iniciar a aplicação localmente.
 
-# watch mode
-$ npm run start:dev
+Link de deploy da aplicação, para acesso aos endpoints: https://garantti-test-backend.herokuapp.com/
 
-# production mode
-$ npm run start:prod
-```
+### Endpoints
+Para realizar as requisições necessárias, foram criados os seguintes endpoints:
+- https://garantti-test-backend.herokuapp.com/user -> GET, irá listar todos os usuários
+- https://garantti-test-backend.herokuapp.com/user -> POST, irá listar criar um novo usuário
+- https://garantti-test-backend.herokuapp.com/:email-do-usuario -> GET, irá buscar um usuário via Params
+- https://garantti-test-backend.herokuapp.com/:id -> PUT, irá atualizar um usuário específico de acordo com o ID (FUNCIONALIDADE NÃO IMPLEMENTADA NO FRONT) <br/>
+- https://garantti-test-backend.herokuapp.com/:id -> DELETE, irá deletar um usuário específico de acordo com o ID (FUNCIONALIDADE NÃO IMPLEMENTADA NO FRONT) <br/>
 
-## Test
+### Postman
+Para auxilio da execução dos endpoints, utilizei a ferramente Postman. [site oficial Postman](https://www.postman.com/). <br/>
+Requests criadas:
 
-```bash
-# unit tests
-$ npm run test
+<img src="https://user-images.githubusercontent.com/86886134/155749735-68b4ba75-7129-4f90-8143-c616f948a95f.png" width="300" height="170" />
 
-# e2e tests
-$ npm run test:e2e
+Para utilizar cada um, basta utilizar a porta em execução (localmente será a localhost:8080) em conjunto com o endpoint e metodo corretos.
 
-# test coverage
-$ npm run test:cov
-```
+## Git
+ - **main**: Branch principal
+ - **feature/NomeDaBranch**: Branch para adicionar novas features à aplicação 
 
-## Support
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## Considerações finais
+Mais uma vez agradeço pela oportunidade e espero conseguir atender ao solicitado. Me desculpe qualquer coisa. :) <br/>
+**Para acessar o repositório do Front-End da aplicação, [clique aqui](https://github.com/DiasBriel/garantti-teste-frontend)**.
 
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
