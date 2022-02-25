@@ -9,6 +9,7 @@ import {
   HttpStatus,
   Res,
   Put,
+  Query,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -42,10 +43,10 @@ export class UserController {
     });
   }
 
-  @Get(':id')
+  @Get(':email')
   public async getOne(
     @Res() res,
-    @Param('id', ParseIntPipe) id: number,
+    @Param('email', ParseIntPipe) id: number,
   ): Promise<UserModel> {
     const user = await this.model.findOne({ where: { id } });
 
