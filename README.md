@@ -11,6 +11,11 @@ Foi solicitada a criação de um pequeno sistema que respeitasse as solicitaçõ
 3. Em caso de quaisquer dúvidas, estou à disposição para respondê-las. <br/>
 4. Desde já, agradeço e espero conseguir atender minimamente o que os senhores esperavam! <br/>
 
+## Foi utilizado:
+- **MySQL**: para o Banco de Dados
+- **NestJs**: para o código
+- **TypeORM**: como ORM
+
 ### Arquitetura:
 
 Como se trata de um sistema simples, utilizei a arquitetura de MVC (Model View Controller), pois funciona muito bem nesses casos.
