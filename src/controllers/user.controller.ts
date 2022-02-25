@@ -46,9 +46,9 @@ export class UserController {
   @Get(':email')
   public async getOne(
     @Res() res,
-    @Param('email', ParseIntPipe) id: number,
+    @Param('email') email: string,
   ): Promise<UserModel> {
-    const user = await this.model.findOne({ where: { id } });
+    const user = await this.model.findOne({ where: { email } });
 
     if (!user) {
       return res.status(HttpStatus.NOT_FOUND).json({
