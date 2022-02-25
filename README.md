@@ -41,7 +41,8 @@ Requests criadas:
 
 <img src="https://user-images.githubusercontent.com/86886134/155749735-68b4ba75-7129-4f90-8143-c616f948a95f.png" width="300" height="170" />
 
-Para utilizar cada um, basta utilizar a porta em execução (localmente será a localhost:8080) em conjunto com o endpoint e metodo corretos.
+Para utilizar cada um:
+- basta utilizar o endpoint e metodo corretos.
 
 ## Git
  - **main**: Branch principal
