@@ -3,12 +3,11 @@ import {
   Post,
   Delete,
   Get,
+  Patch,
   Body,
   Param,
   ParseIntPipe,
-  HttpStatus,
-  Res,
-  Put,
+  NotFoundException,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -22,92 +21,52 @@ export class UserController {
   ) {}
 
   @Post()
-  public async create(
-    @Res() res,
-    @Body() body: UserSchema,
-  ): Promise<UserModel> {
-    const email = body.email;
-    const existingUser = await this.model.findOne({ where: { email } });
-
-    if (existingUser) {
-      return res.status(HttpStatus.CONFLICT).json({
-        message: 'User already exists.',
-      });
-    }
-
+  public async create(@Body() body: UserSchema): Promise<UserModel> {
     const createdUser = await this.model.save(body);
-    return res.status(HttpStatus.CREATED).json({
-      message: 'User has been created successfully.',
-      data: createdUser,
-    });
+    return createdUser;
   }
 
   @Get(':id')
   public async getOne(
-    @Res() res,
     @Param('id', ParseIntPipe) id: number,
   ): Promise<UserModel> {
     const user = await this.model.findOne({ where: { id } });
 
     if (!user) {
-      return res.status(HttpStatus.NOT_FOUND).json({
-        message: 'User not found... Check credentials.',
-      });
+      throw new NotFoundException('Pessoa não encontrada...');
     }
-
-    return res.status(HttpStatus.OK).json({
-      message: 'User found.',
-      data: user,
-    });
+    return user;
   }
 
   @Get()
-  public async getAll(@Res() res): Promise<UserModel[]> {
+  public async getAll(): Promise<UserModel[]> {
     const list = await this.model.find();
-
-    return res.status(HttpStatus.OK).json({
-      message: 'Users found.',
-      data: list,
-    });
+    return list;
   }
 
-  @Put(':id')
+  @Patch(':id')
   public async update(
-    @Res() res,
     @Param('id', ParseIntPipe) id: number,
     @Body() body: UserSchema,
   ): Promise<UserModel> {
     const user = await this.model.findOne({ where: { id } });
 
     if (!user) {
-      return res.status(HttpStatus.NOT_FOUND).json({
-        message: 'User not found... Check credentials.',
-        data: user,
-      });
+      throw new NotFoundException('Pessoa não encontrada...');
     }
 
     await this.model.update({ id }, body);
-    return res.status(HttpStatus.OK).json({
-      message: 'User has been updated successfully.',
-    });
+    return await this.model.findOne({ id });
   }
 
   @Delete(':id')
-  public async delete(
-    @Res() res,
-    @Param('id', ParseIntPipe) id: number,
-  ): Promise<string> {
+  public async delete(@Param('id', ParseIntPipe) id: number): Promise<string> {
     const user = await this.model.findOne({ where: { id } });
-
     if (!user) {
-      return res.status(HttpStatus.NOT_FOUND).json({
-        message: 'User not found... Check credentials.',
-      });
+      throw new NotFoundException('Pessoa não encontrada...');
     }
-
     await this.model.delete({ id });
-    return res.status(HttpStatus.OK).json({
-      message: 'User has been deleted successfully.',
-    });
+
+    return 'Usuário deletado com sucesso.';
   }
 }
