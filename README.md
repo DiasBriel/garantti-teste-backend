@@ -6,7 +6,7 @@ Foi solicitada a criação de um pequeno sistema que respeitasse as solicitaçõ
 - Visualização
 
 ### Observações:
-1. Para facilitar na avaliação, fiz deploy do banco de dados MySQL que criei, simplesmente para não ser de que vocês realizem toda a configuração inicial do DB
+1. Para facilitar na avaliação, fiz deploy em nuvem do banco de dados MySQL que criei, simplesmente para não ser de que vocês realizem toda a configuração inicial do DB
 2. ormconfig.json já está com as credenciais necessárias
 3. Em caso de quaisquer dúvidas, estou à disposição para respondê-las. <br/>
 4. Desde já, agradeço e espero conseguir atender minimamente o que os senhores esperavam! <br/>
