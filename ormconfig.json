@@ -1,10 +1,10 @@
 {
   "type": "mysql",
-  "host": "localhost",
+  "host": "us-cdbr-east-05.cleardb.net",
   "port": 3306,
-  "username": "root",
-  "password": "root",
-  "database": "garantti",
+  "username": "b6d2cdcd85027c",
+  "password": "003b532f",
+  "database": "heroku_df50ec4a8caf693",
   "entities": ["dist/**/*.model.js"],
   "synchronize": true
 }
