@@ -3,7 +3,7 @@
   "host": "localhost",
   "port": 3306,
   "username": "root",
-  "password": "Palestra0911!",
+  "password": "root",
   "database": "garantti",
   "entities": ["dist/**/*.model.js"],
   "synchronize": true
